@@ -7,7 +7,7 @@
 <form id="new"> 
     <h2>Embed maker</h2>
     <h3>code:</h3>
-    <code id="code-box"></code>
+    <h3 id=""></h3>
 </form>
 <form action="Submit" method="post" id="SubmitThis"> 
     <h2>Embed maker</h2>
@@ -33,11 +33,17 @@
       {
         if( !localStorage.getItem('firstLoad') )
         {
-          localStorage['firstLoad'] = true;
+          localStorage['firstLoad'] = 1;
           window.location.reload();
         }  
-        else
-          localStorage.removeItem('firstLoad');
+        else if( localStorage['firstLoad'] == 1 )
+        {
+          localStorage['firstLoad'] = 2;
+          window.location.reload();
+        }
+        else {
+            localStorage.removeItem('firstLoad');
+        }
       }
     })();
     
@@ -72,6 +78,6 @@ form.addEventListener('submit', (event) => {
     </script>
 <script type="text/javascript" src="https://resources.bexcool.eu/fluentwebframework/src/js/fluent_functions.min.js"></script>
 <link rel="stylesheet" href="https://resources.bexcool.eu/fluentwebframework/src/style/fluent.min.css" type="text/css">
-
+<link rel="stylesheet" href="https://raw.githubusercontent.com/sindresorhus/github-markdown-css/main/github-markdown-light.css" type="text/css">
 </body>
 </html>
