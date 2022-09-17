@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+    
+<form id="new"> 
+    <h2>Embed maker</h2>
+    <h3>code:</h3>
+    <code id="code-box"></code>
+</form>
+<form action="Submit" method="post" id="SubmitThis"> 
+    <h2>Embed maker</h2>
+    <h3>Pick a App</h3>
+<select id="app" name="app">
+    <option>Youtube</option>
+    <option>Spotify</option>
+    <option>SoundCloud</option>
+    <option>Twiter</option>
+    <option>Facebook</option>
+    <option>Instagram</option>
+</select>
+<br>
+<input id="link" name="link" placeholder="Link" type="url">
+<br>
+<button type="submit">Submit</button>
+</form>
+<script type='text/javascript'>
+
+    (function()
+    {
+      if( window.localStorage )
+      {
+        if( !localStorage.getItem('firstLoad') )
+        {
+          localStorage['firstLoad'] = true;
+          window.location.reload();
+        }  
+        else
+          localStorage.removeItem('firstLoad');
+      }
+    })();
+    
+    </script>
+    
+    <script>
+
+setTimeout(function(){
+    DisableMica();
+    document.getElementById("new").hidden = true;
+},100);
+
+const form  = document.getElementById('SubmitThis');
+
+form.addEventListener('submit', (event) => {
+	// stop form submission
+	event.preventDefault();
+    const Link = document.getElementById("link").value;
+    const App = document.getElementById("app").value;
+    document.getElementById("SubmitThis").hidden = true;
+    document.getElementById("new").hidden = false;
+    var parser = document.createElement('a');
+    parser.href = Link;
+    const back82 = parser.search;
+    const urlParams = new URLSearchParams(back82);
+    const videoid = urlParams.get('v');
+    const code = ("<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + videoid + " title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>");
+    const element = document.getElementById("code-box"); 
+    element.innerHTML = code;
+
+});
+    </script>
+<script type="text/javascript" src="https://resources.bexcool.eu/fluentwebframework/src/js/fluent_functions.min.js"></script>
+<link rel="stylesheet" href="https://resources.bexcool.eu/fluentwebframework/src/style/fluent.min.css" type="text/css">
+
+</body>
+</html>
