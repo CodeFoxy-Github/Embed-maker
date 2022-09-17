@@ -38,8 +38,10 @@
         }  
         else if( localStorage['firstLoad'] == 1 )
         {
+      setTimeout(function(){
           localStorage['firstLoad'] = 2;
           window.location.reload();
+        },3000);
         }
         else {
             localStorage.removeItem('firstLoad');
