@@ -77,7 +77,7 @@ form.addEventListener('submit', (event) => {
     const back82 = parser.search;
     const urlParams = new URLSearchParams(back82);
     const videoid = urlParams.get('v');
-    const code = ("&lt;iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/"/n + videoid + " title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen&gt;&lt;/iframe&gt;");
+    const code = ("&lt;iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + videoid + " title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen&gt;&lt;/iframe&gt;");
     const element = document.getElementById("code-box"); 
     element.innerHTML = code;
 
