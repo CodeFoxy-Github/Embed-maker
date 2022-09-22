@@ -3,7 +3,6 @@
 <head>
 </head>
 <body>
-    
 <form id="new"> 
     <h2>Embed maker</h2>
     <h3>code:</h3>
@@ -15,8 +14,6 @@
 <select id="app" name="app">
     <option>Youtube</option>
     <option>Spotify</option>
-    <option>SoundCloud</option>
-    <option>Twiter</option>
     <option>Facebook</option>
     <option>Instagram</option>
 </select>
@@ -68,18 +65,29 @@ const form  = document.getElementById('SubmitThis');
 form.addEventListener('submit', (event) => {
 	// stop form submission
 	event.preventDefault();
+    const yt = 'Youtube';
+    const spot = 'Spotify';
+    const sc = 'SoundCloud';
     const Link = document.getElementById("link").value;
     const App = document.getElementById("app").value;
     document.getElementById("SubmitThis").hidden = true;
     document.getElementById("new").hidden = false;
     var parser = document.createElement('a');
     parser.href = Link;
+    if (( App == yt )) {
     const back82 = parser.search;
     const urlParams = new URLSearchParams(back82);
     const videoid = urlParams.get('v');
     const code = ("&lt;iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/" + videoid + " title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen&gt;&lt;/iframe&gt;");
     const element = document.getElementById("code-box"); 
     element.innerHTML = code;
+    }
+    if (( App == spot )) {
+    var trackid = Link.substring(Link.lastIndexOf('/')+1);
+    const code = ("&lt;iframe style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/track/" + trackid + "?utm_source=generator\" width=\"100%\" height=\"152\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"&gt;&lt;/iframe&gt;");
+    const element = document.getElementById("code-box"); 
+    element.innerHTML = code;
+   }
 
 });
     </script>
