@@ -20,6 +20,12 @@
         <h2>Embed maker</h2>
         <h3>code:</h3>
         <code sh="html" id="code-box"></code>
+        <button
+          id="demo"
+          onclick="copyToClipboard(document.getElementById('demo').innerHTML)"
+        >
+          Copy This
+        </button>
       </form>
       <form action="Submit" method="post" id="SubmitThis">
         <h2>Embed maker</h2>
@@ -53,7 +59,11 @@
           }
         })();
       </script>
-
+      <script>
+        function copyToClipboard(text) {
+          window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+        }
+      </script>
       <script>
         setTimeout(function () {
           document.getElementById("new").hidden = true;
