@@ -27,7 +27,6 @@
         <select color="#c0d5d0" id="app" name="app">
           <option color="#c0d5d0">Youtube</option>
           <option color="#c0d5d0">Spotify</option>
-          <option color="#c0d5d0">Cloudflare test</option>
         </select>
         <br />
         <input id="link" name="link" placeholder="Link" type="url" />
@@ -47,7 +46,7 @@
                 localStorage["firstLoad"] = 2;
                 document.getElementById("new").hidden = true;
                 window.location.reload();
-              }, 3000);
+              }, 500);
             } else {
               localStorage.removeItem("firstLoad");
             }
@@ -7172,7 +7171,7 @@
       rel="stylesheet"
       href="https://web.dev/css/legacy-rollout.css"
       type="text/css"
-    /><style class="darkreader darkreader--cors" media="screen">
+    <style class="darkreader darkreader--cors" media="screen">
       .legacy-rollout .w-callout {
         margin: 2.25em 0;
       }
